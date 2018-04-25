@@ -1,0 +1,36 @@
+<h1>You have successfully logged on</h1>
+<h1>Hi venkatesh welcome to your favourites</h1>
+<app-login (venkatesh)="method($event)"></app-login>
+<button  (click)="logout()">logout</button>
+
+<nav class='navbar navbar-nav navbar-fixed-top'>
+  <div *ngIf="value" class='container-fluid'>
+    <a class='navbar-brand'>{{pageTitle}}</a>
+    <li><input type="button" class="btn btn-primary" value='courses' [routerLink]="['/welcome/courses']"></li>
+    <li><input type="button" class="btn btn-primary" value='movies' [routerLink]="['/welcome/movies']"></li>
+    <li><input type="button" class="btn btn-primary" value='shopping' [routerLink]="['/welcome/shopping']"></li>
+    <li><input type="button" class="btn btn-primary" value='tvshows' [routerLink]="['/welcome/tvshows']"></li>
+<!--<li><input type="button" class="btn btn-primary" value='TODOS' [routerLink]="['/todos']"></li>
+<li><input type="button" class="btn btn-primary" value='COMMENTS' [routerLink]="['/comments']"></li>-->
+    
+  
+  
+  </div>
+</nav>
+<kb-page-slider [overlayIndicator]="false" dotColor="black"
+[(page)]="pageNumber" (pageCountChange)="pageCount = $event">
+
+<!-- Pages -->
+<div *kbPages="let page of pages" [style.background]="page.image"></div>
+
+<!-- Navigation Buttons -->
+<kb-nav-button backward [showBackground]="true"
+[(page)]="pageNumber" [pageCount]="pageCount">
+</kb-nav-button>
+
+<kb-nav-button forward [showBackground]="true"
+[(page)]="pageNumber" [pageCount]="pageCount">
+</kb-nav-button>
+
+</kb-page-slider>
+
